@@ -96,6 +96,9 @@
     <Compile Include="Views\ToDoSubmitView.xaml.cs">
       <DependentUpon>ToDoSubmitView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TotalProgressView.xaml.cs">
+      <DependentUpon>TotalProgressView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -139,6 +142,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ToDoSubmitView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TotalProgressView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
