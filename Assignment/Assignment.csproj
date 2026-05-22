@@ -79,10 +79,13 @@
     </Compile>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Commands\RellayCommand.cs" />
+    <Compile Include="Models\ThreadItem.cs" />
     <Compile Include="ViewModels\LoadersViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="ViewModels\ThreadProgressViewModel.cs" />
     <Compile Include="ViewModels\ToDoListViewModel.cs" />
     <Compile Include="ViewModels\ToDoSubmitViewModel.cs" />
+    <Compile Include="ViewModels\TotalProgressViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\LoadersView.xaml.cs">
       <DependentUpon>LoadersView.xaml</DependentUpon>

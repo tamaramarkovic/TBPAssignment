@@ -10,11 +10,9 @@
             <ColumnDefinition Width="100"/>
             <ColumnDefinition MinWidth="200" Width="*"/>
             <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
         <Label Grid.Column="0" Content="Total progress" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <ProgressBar Grid.Column="1"/>
-        <Label Grid.Column="2" Content="%" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button Grid.Column="3" Content="Cancel all"/>
+        <ProgressBar Grid.Column="1" Minimum="0" Maximum="100" Value="{Binding TotalProgress}" />
+        <Label Grid.Column="2" Content="{Binding TotalProgress}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </UserControl>

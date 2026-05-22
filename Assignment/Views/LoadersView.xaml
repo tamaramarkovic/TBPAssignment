@@ -11,9 +11,19 @@
             <RowDefinition Height="9*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
-        <ScrollViewer />
-        
-        <local:TotalProgressView Grid.Row="1"></local:TotalProgressView>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding ThreadProgressList}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <local:ThreadProgressView DataContext="{Binding}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+
+
+        <local:TotalProgressView Grid.Row="1" DataContext="{Binding TotalProgress}"/>
     </Grid>
 </UserControl>
