@@ -50,7 +50,7 @@ namespace Assignment.ViewModels
         {
             _timer = new DispatcherTimer();
             _timer.Interval = TimeSpan.FromSeconds(1);
-            _timer.Tick += Timer_Tick;
+            _timer.Tick += TimerTick;
             _timer.Start();
         }
 
@@ -74,7 +74,27 @@ namespace Assignment.ViewModels
             }
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private void TimerTick(object sender, EventArgs e)
+        {
+            IncrementThreadProgress();
+            CalculateTotalProgress();
+        }
+
+        public void IncrementThreadProgress()
+        {
+            foreach (var thread in ThreadProgressList)
+            {
+                if (thread.Thread.IsCanceled) continue;
+
+                thread.Thread.Elapsed++;
+                if (thread.Thread.Elapsed >= thread.Thread.ExecutionTime)
+                {
+                    thread.Thread.Elapsed = thread.Thread.ExecutionTime;
+                }
+            }
+        }
+
+        public void CalculateTotalProgress()
         {
             double totalProgress = 0;
             int activeThreads = 0;
@@ -82,12 +102,6 @@ namespace Assignment.ViewModels
             foreach (var thread in ThreadProgressList)
             {
                 if (thread.Thread.IsCanceled) continue;
-
-                thread.Thread.Progress += 100 / thread.Thread.ExecutionTime;
-                if (thread.Thread.Progress >= 100)
-                {
-                    thread.Thread.Progress = 100;
-                }
 
                 totalProgress += thread.Thread.Progress;
                 activeThreads++;

@@ -5,10 +5,10 @@ namespace Assignment.Models
 {
     public class ThreadItem : PropertyChangedBase
     {
-        private double _progress;
         private string _name;
         private int _executionTime;
         private bool _isCanceled;
+        private int _elapsed;
 
         public ThreadItem(string name, int executionTime)
         {
@@ -22,7 +22,7 @@ namespace Assignment.Models
                 throw new ArgumentNullException(nameof(executionTime));
             }
 
-            _progress = 0;
+            _elapsed = 0;
             _name = name;
             _executionTime = executionTime;
             _isCanceled = false;
@@ -30,12 +30,7 @@ namespace Assignment.Models
 
         public double Progress
         {
-            get => _progress;
-            set
-            {
-                _progress = value;
-                NotifyOfPropertyChange(nameof(Progress));
-            }
+            get => ((double) Elapsed / ExecutionTime) * 100;
         }
 
         public string Name
@@ -55,6 +50,18 @@ namespace Assignment.Models
             {
                 _executionTime = value;
                 NotifyOfPropertyChange(nameof(ExecutionTime));
+                NotifyOfPropertyChange(nameof(Progress));
+            }
+        }
+
+        public int Elapsed
+        {
+            get => _elapsed;
+            set
+            {
+                _elapsed = value;
+                NotifyOfPropertyChange(nameof(Elapsed));
+                NotifyOfPropertyChange(nameof(Progress));
             }
         }
 
