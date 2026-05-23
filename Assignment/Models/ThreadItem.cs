@@ -1,18 +1,32 @@
-﻿using Assignment.ViewModels;
+﻿using Caliburn.Micro;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Assignment.Models
 {
-    public class ThreadItem : ViewModelBase
+    public class ThreadItem : PropertyChangedBase
     {
         private double _progress;
         private string _name;
         private int _executionTime;
-        private bool _canceled;
+        private bool _isCanceled;
+
+        public ThreadItem(string name, int executionTime)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                throw new ArgumentNullException(nameof(name));
+            }
+
+            if (executionTime <= 0)
+            {
+                throw new ArgumentNullException(nameof(executionTime));
+            }
+
+            _progress = 0;
+            _name = name;
+            _executionTime = executionTime;
+            _isCanceled = false;
+        }
 
         public double Progress
         {
@@ -20,26 +34,44 @@ namespace Assignment.Models
             set
             {
                 _progress = value;
-                OnPropertyChanged(nameof(Progress));
+                NotifyOfPropertyChange(nameof(Progress));
             }
         }
 
         public string Name
         {
             get => _name;
-            set { _name = value; OnPropertyChanged(nameof(Name)); }
+            set
+            {
+                _name = value;
+                NotifyOfPropertyChange(nameof(Name));
+            }
         }
 
         public int ExecutionTime
         {
             get => _executionTime;
-            set { _executionTime = value; OnPropertyChanged(nameof(ExecutionTime)); }
+            set
+            {
+                _executionTime = value;
+                NotifyOfPropertyChange(nameof(ExecutionTime));
+            }
         }
 
-        public bool Canceled
+        public bool IsCanceled
         {
-            get => _canceled;
-            set { _canceled = value; OnPropertyChanged(nameof(Canceled)); }
+            get => _isCanceled;
+            set
+            {
+                _isCanceled = value;
+                NotifyOfPropertyChange(nameof(IsCanceled));
+                NotifyOfPropertyChange(nameof(IsActive));
+            }
+        }
+
+        public bool IsActive
+        {
+            get => !_isCanceled;
         }
     }
 

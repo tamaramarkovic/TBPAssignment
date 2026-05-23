@@ -22,8 +22,6 @@
             </ItemsControl>
         </ScrollViewer>
 
-
-
         <local:TotalProgressView Grid.Row="1" DataContext="{Binding TotalProgress}"/>
     </Grid>
 </UserControl>

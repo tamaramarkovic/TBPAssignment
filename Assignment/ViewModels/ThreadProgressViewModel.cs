@@ -9,7 +9,7 @@ namespace Assignment.ViewModels
     {
         public ICommand CancelCommand { get; private set; }
 
-        private ThreadItem _thread { get; set; }
+        private ThreadItem _thread;
 
         public ThreadItem Thread
         {
@@ -23,7 +23,7 @@ namespace Assignment.ViewModels
 
         public ThreadProgressViewModel(ThreadItem threadItem)
         {
-            Thread = threadItem;
+            Thread = threadItem ?? throw new ArgumentNullException(nameof(threadItem));
             Initialize();
         }
 
@@ -34,7 +34,7 @@ namespace Assignment.ViewModels
 
         private void Cancel(object obj)
         {
-            Thread.Canceled = true;
+            Thread.IsCanceled = true;
         }
     }
 }

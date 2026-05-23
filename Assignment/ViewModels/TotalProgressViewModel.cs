@@ -1,16 +1,8 @@
-﻿using Assignment.Commands;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-
-namespace Assignment.ViewModels
+﻿namespace Assignment.ViewModels
 {
     public class TotalProgressViewModel : ViewModelBase
     {
-        private double _totalProgress {  get; set; }
+        private double _totalProgress;
 
         public double TotalProgress
         {
@@ -24,7 +16,7 @@ namespace Assignment.ViewModels
 
         public TotalProgressViewModel()
         {
-
+            TotalProgress = 0;
         }
     }
 }

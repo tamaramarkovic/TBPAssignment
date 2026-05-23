@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Assignment.Views"
              mc:Ignorable="d" 
-             Height="Auto" Width="Auto" Background="Wheat">
+             Height="Auto" Width="Auto">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
@@ -18,6 +18,6 @@
         <Label Grid.Column="1" Content="{Binding Thread.Name}" HorizontalAlignment="Center"/>
         <ProgressBar Grid.Column="2" Minimum="0" Maximum="100"  Value="{Binding Thread.Progress}" />
         <Label Grid.Column="3" HorizontalAlignment="Center" Content="{Binding Thread.Progress}"/>
-        <Button Grid.Column="4" Content="Cancel" Command="{Binding CancelCommand}"/>
+        <Button Grid.Column="4" Content="Cancel" Command="{Binding CancelCommand}" IsEnabled="{Binding Thread.IsActive}"/>
     </Grid>
 </UserControl>
