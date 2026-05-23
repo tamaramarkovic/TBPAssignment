@@ -24,7 +24,7 @@
                 <ItemsControl ItemsSource="{Binding ToDoItemList}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <local:ToDoItemView DataContext="{Binding}"/>
+                            <local:ToDoItemView DataContext="{Binding}" Margin="5"/>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
