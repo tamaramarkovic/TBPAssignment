@@ -5,19 +5,25 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Assignment.Views"
              mc:Ignorable="d" 
-             Height="Auto" Width="Auto">
+             Height="Auto" Width="Auto" BorderBrush="Black" BorderThickness="1">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition MinWidth="200" Width="*"/>
+            <ColumnDefinition Width="60"/>
             <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
+        
         <Label Grid.Column="0" Content="Thread progress" HorizontalAlignment="Center"/>
-        <Label Grid.Column="1" Content="{Binding Thread.Name}" HorizontalAlignment="Center"/>
+        
+        <Label Grid.Column="1" Content="{Binding Thread.Name}" HorizontalAlignment="Center" FontWeight="Bold"/>
+       
         <ProgressBar Grid.Column="2" Minimum="0" Maximum="100"  Value="{Binding Thread.Progress, Mode=OneWay}" />
-        <Label Grid.Column="3" HorizontalAlignment="Center" Content="{Binding Thread.Progress, Mode=OneWay}"/>
+        
+        <Label Grid.Column="3" HorizontalAlignment="Center" Content="{Binding Thread.Progress, Mode=OneWay}" ContentStringFormat="{}{0:0.00}%"/>
+        
         <Button Grid.Column="4" Content="Cancel" Command="{Binding CancelCommand}" IsEnabled="{Binding Thread.IsActive}"/>
+        
     </Grid>
 </UserControl>
