@@ -1,10 +1,4 @@
-﻿using Assignment.Models;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 
 namespace Assignment.ViewModels
 {
@@ -20,7 +14,7 @@ namespace Assignment.ViewModels
             set
             {
                 _toDoItemList = value;
-                OnPropertyChanged("ToDoItemList");
+                OnPropertyChanged(nameof(ToDoItemList));
             }
         }
 

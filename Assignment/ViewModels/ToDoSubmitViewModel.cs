@@ -1,14 +1,9 @@
 ﻿using Assignment.Commands;
 using Assignment.Models;
-using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Windows.Navigation;
 
 namespace Assignment.ViewModels
 {
@@ -22,7 +17,7 @@ namespace Assignment.ViewModels
             set
             {
                 _itemName = value;
-                OnPropertyChanged("ItemName");
+                OnPropertyChanged(nameof(ItemName));
             }
         }
         public int SelectedPriority
@@ -31,7 +26,7 @@ namespace Assignment.ViewModels
             set
             {
                 _selectedPriority = value;
-                OnPropertyChanged("SelectedPriority");
+                OnPropertyChanged(nameof(SelectedPriority));
             }
         }
 

@@ -1,9 +1,4 @@
-﻿using Assignment.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace Assignment.Models
 {
@@ -14,6 +9,16 @@ namespace Assignment.Models
 
         public ToDoItem(string name, int priority)
         {
+            if (string.IsNullOrEmpty(name))
+            {
+                throw new ArgumentNullException(nameof(name));
+            }
+
+            if (priority <= 0)
+            {
+                throw new ArgumentNullException(nameof(priority));
+            }
+
             Name = name;
             Priority = priority;
         }
