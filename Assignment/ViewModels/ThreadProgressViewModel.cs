@@ -32,7 +32,7 @@ namespace Assignment.ViewModels
             CancelCommand = new RelayCommand(Cancel);
         }
 
-        private void Cancel(object obj)
+        public void Cancel(object obj)
         {
             Thread.IsCanceled = true;
         }
