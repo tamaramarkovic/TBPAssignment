@@ -48,6 +48,7 @@
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.19\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Runtime.Serialization.Primitives, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -79,10 +80,13 @@
     </Compile>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Commands\RellayCommand.cs" />
+    <Compile Include="Models\ThreadItem.cs" />
     <Compile Include="ViewModels\LoadersViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="ViewModels\ThreadProgressViewModel.cs" />
     <Compile Include="ViewModels\ToDoListViewModel.cs" />
     <Compile Include="ViewModels\ToDoSubmitViewModel.cs" />
+    <Compile Include="ViewModels\TotalProgressViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\LoadersView.xaml.cs">
       <DependentUpon>LoadersView.xaml</DependentUpon>
@@ -90,11 +94,17 @@
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ThreadProgressView.xaml.cs">
+      <DependentUpon>ThreadProgressView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ToDoListView.xaml.cs">
       <DependentUpon>ToDoListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ToDoSubmitView.xaml.cs">
       <DependentUpon>ToDoSubmitView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TotalProgressView.xaml.cs">
+      <DependentUpon>TotalProgressView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -134,11 +144,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ThreadProgressView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ToDoListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ToDoSubmitView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TotalProgressView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
