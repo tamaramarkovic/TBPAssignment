@@ -20,7 +20,15 @@
             <Border Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="1"  Grid.Row="0" Grid.Column="1">
                 <ContentControl x:Name="ToDoSubmitViewModel"/>
             </Border>
-            
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ItemsControl ItemsSource="{Binding ToDoItemList}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <local:ToDoItemView DataContext="{Binding}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
         </Grid>
     </ContentControl>
 </UserControl>

@@ -81,9 +81,11 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Commands\RellayCommand.cs" />
     <Compile Include="Models\ThreadItem.cs" />
+    <Compile Include="Models\ToDoItem.cs" />
     <Compile Include="ViewModels\LoadersViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\ThreadProgressViewModel.cs" />
+    <Compile Include="ViewModels\ToDoItemViewModel.cs" />
     <Compile Include="ViewModels\ToDoListViewModel.cs" />
     <Compile Include="ViewModels\ToDoSubmitViewModel.cs" />
     <Compile Include="ViewModels\TotalProgressViewModel.cs" />
@@ -96,6 +98,9 @@
     </Compile>
     <Compile Include="Views\ThreadProgressView.xaml.cs">
       <DependentUpon>ThreadProgressView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ToDoItemView.xaml.cs">
+      <DependentUpon>ToDoItemView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ToDoListView.xaml.cs">
       <DependentUpon>ToDoListView.xaml</DependentUpon>
@@ -145,6 +150,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ThreadProgressView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ToDoItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
