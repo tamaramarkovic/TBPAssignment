@@ -1,11 +1,9 @@
 ﻿using Assignment.Commands;
-using System;
+using Assignment.Models;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Windows.Navigation;
 
 namespace Assignment.ViewModels
 {
@@ -19,7 +17,7 @@ namespace Assignment.ViewModels
             set
             {
                 _itemName = value;
-                OnPropertyChanged("ItemName");
+                OnPropertyChanged(nameof(ItemName));
             }
         }
         public int SelectedPriority
@@ -28,7 +26,7 @@ namespace Assignment.ViewModels
             set
             {
                 _selectedPriority = value;
-                OnPropertyChanged("SelectedPriority");
+                OnPropertyChanged(nameof(SelectedPriority));
             }
         }
 
@@ -36,8 +34,11 @@ namespace Assignment.ViewModels
 
         public ICommand SubmitCommand { get; private set; }
 
-        public ToDoSubmitViewModel() 
+        private ToDoListViewModel _toDoListViewModel;
+
+        public ToDoSubmitViewModel(ToDoListViewModel toDoListViewModel) 
         {
+            _toDoListViewModel = toDoListViewModel;
             Initialize();
         }
 
@@ -49,7 +50,19 @@ namespace Assignment.ViewModels
 
         private void SubmitItem(object obj)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(ItemName) || SelectedPriority == 0)
+            {
+                return;
+            }
+
+            _toDoListViewModel.ToDoItemList.Add(
+                new ToDoItemViewModel(
+                    new ToDoItem(ItemName, SelectedPriority)
+                    )
+                );
+
+            _toDoListViewModel.ToDoItemList =
+                new ObservableCollection<ToDoItemViewModel>(_toDoListViewModel.ToDoItemList.OrderBy(toDoItem => toDoItem.ToDo.Priority));
         }
     }
 }

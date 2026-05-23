@@ -1,14 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 
 namespace Assignment.ViewModels
 {
-    public class ToDoListViewModel
+    public class ToDoListViewModel : ViewModelBase
     {
         public ToDoSubmitViewModel ToDoSubmitViewModel { get; set; }
+
+        private ObservableCollection<ToDoItemViewModel> _toDoItemList;
+
+        public ObservableCollection<ToDoItemViewModel> ToDoItemList
+        {
+            get => _toDoItemList;
+            set
+            {
+                _toDoItemList = value;
+                OnPropertyChanged(nameof(ToDoItemList));
+            }
+        }
 
         public ToDoListViewModel()
         {
@@ -17,7 +25,8 @@ namespace Assignment.ViewModels
 
         private void Initialize()
         {
-            ToDoSubmitViewModel = new ToDoSubmitViewModel();
+            ToDoItemList = new ObservableCollection<ToDoItemViewModel>();
+            ToDoSubmitViewModel = new ToDoSubmitViewModel(this);
         }
     }
 }
