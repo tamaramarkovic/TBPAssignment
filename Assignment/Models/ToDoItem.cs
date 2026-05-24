@@ -2,6 +2,9 @@
 
 namespace Assignment.Models
 {
+    /// <summary>
+    /// Represents a single to-do item
+    /// </summary>
     public class ToDoItem
     {
         public string Name { get; set; }

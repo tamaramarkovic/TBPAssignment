@@ -32,6 +32,9 @@ namespace Assignment.ViewModels
             CancelCommand = new RelayCommand(Cancel);
         }
 
+        /// <summary>
+        /// Sets thread to cancel state
+        /// </summary>
         public void Cancel(object obj)
         {
             Thread.IsCanceled = true;
