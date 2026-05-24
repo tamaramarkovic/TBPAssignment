@@ -19,6 +19,8 @@
     <UserControl.Style>
         <Style TargetType="UserControl">
             <Setter Property="Background" Value="Transparent"/>
+            
+            <!-- Coloring based on task -->
 
             <Style.Triggers>
                 <DataTrigger Binding="{Binding ToDo.Priority}" Value="1">

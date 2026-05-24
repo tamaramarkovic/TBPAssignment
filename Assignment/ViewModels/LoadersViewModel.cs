@@ -54,6 +54,9 @@ namespace Assignment.ViewModels
             _timer.Start();
         }
 
+        /// <summary>
+        /// Initializes list of threads based on config and sets up random ExecutionTime for each
+        /// </summary>
         private void InitializeThreads()
         {
             Random randomExecution = new Random();
@@ -74,12 +77,18 @@ namespace Assignment.ViewModels
             }
         }
 
+        /// <summary>
+        /// Represents a timer tick method that increments thread progress and calculate total progress every second
+        /// </summary>
         private void TimerTick(object sender, EventArgs e)
         {
             IncrementThreadProgress();
             CalculateTotalProgress();
         }
 
+        /// <summary>
+        /// Increments active threads elapsed time
+        /// </summary>
         public void IncrementThreadProgress()
         {
             foreach (var thread in ThreadProgressList)
@@ -94,6 +103,9 @@ namespace Assignment.ViewModels
             }
         }
 
+        /// <summary>
+        /// Calculates total progress of active threads
+        /// </summary>
         public void CalculateTotalProgress()
         {
             double totalProgress = 0;

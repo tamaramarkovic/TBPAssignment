@@ -3,6 +3,9 @@ using System;
 
 namespace Assignment.Models
 {
+    /// <summary>
+    /// Represents a single thread
+    /// </summary>
     public class ThreadItem : PropertyChangedBase
     {
         private string _name;

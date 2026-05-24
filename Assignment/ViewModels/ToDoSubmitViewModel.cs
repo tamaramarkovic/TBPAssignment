@@ -48,6 +48,9 @@ namespace Assignment.ViewModels
             Priorities = new List<int> { 1, 2, 3};
         }
 
+        /// <summary>
+        /// Adds current item on list of items
+        /// </summary>
         private void SubmitItem(object obj)
         {
             if (string.IsNullOrEmpty(ItemName) || SelectedPriority == 0)
